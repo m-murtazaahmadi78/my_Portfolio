@@ -25,11 +25,10 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin (like Postman)
       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true); // origin allowed
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
       }
@@ -37,6 +36,10 @@ app.use(
     credentials: true,
   })
 );
+
+// 🔥 handle preflight requests
+app.options("*", cors());
+
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
