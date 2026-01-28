@@ -19,6 +19,7 @@ const __dirname = path.resolve();
 const allowedOrigins = [
   "https://dashboard-pi-black-27.vercel.app",
   "https://front-profile-kufee1c4o-m-murtaza-ahmadis-projects.vercel.app",
+  "https://front-profile.vercel.app",
   "http://localhost:3000"
 ];
 
