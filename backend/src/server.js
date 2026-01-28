@@ -18,7 +18,7 @@ const __dirname = path.resolve();
 
 const allowedOrigins = [
   "https://dashboard-pi-black-27.vercel.app",
-  "https://front-profile-kufee1c4o-m-murtaza-ahmadis-projects.vercel.app/",
+  "https://front-profile-kufee1c4o-m-murtaza-ahmadis-projects.vercel.app",
   "http://localhost:3000"
 ];
 
@@ -57,7 +57,7 @@ const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("/*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
   });
 }
